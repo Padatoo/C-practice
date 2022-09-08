@@ -55,3 +55,40 @@ catch
 //6 -> да
 //7 -> да
 //1 -> нет
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Write a number of the weekday: ");
+        try
+        {
+            int numberBase = int.Parse(Console.ReadLine());
+            switch (numberBase)
+            {
+                case < 1:
+                    Console.WriteLine("You havent entered day of the week");
+                    break;
+
+                case > 7:
+                    Console.WriteLine("You havent entered day of the week");
+                    break;
+
+                case 6:
+                    Console.WriteLine("Yes");
+                    break;
+
+                case 7:
+                    Console.WriteLine("Yes");
+                    break;
+
+                default:
+                    Console.WriteLine("NO");
+                    break;
+            }
+        }
+
+        catch
+        { Console.WriteLine("you have entered incorrect data"); }
+    }
+}
