@@ -22,12 +22,32 @@ catch
 
 
 
-
 //Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
 //645 -> 5
 //78 -> третьей цифры нет
 //32679 -> 6
+
+Console.Write("Write a Number less then 2,147,483,648: ");
+try
+    {
+    int numberBase = int.Parse(Console.ReadLine());
+    if (numberBase < 100) Console.WriteLine("there is no third digit");
+    else
+        {
+        int x = 0;
+        while (numberBase > 9)
+            {
+            x = numberBase % 10;
+            numberBase = x;
+            }
+        Console.WriteLine($"value: {numberBase}");
+        }
+    }
+catch
+    { Console.WriteLine("you have entered incorrect data"); }
+
+
 
 
 //Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
