@@ -5,6 +5,24 @@
 //918 -> 1
 
 
+Console.Write("Write a 3 digit Number: ");
+try
+	{
+	int numberBase = int.Parse(Console.ReadLine());
+	int answer = 0;
+	if (numberBase > 999) Console.WriteLine("your number is higher then 999");
+	else if (numberBase < 100) Console.WriteLine("your number is lesser then 100");
+	else answer = numberBase / 10 % 10;Console.WriteLine(answer);
+	}
+catch
+{Console.WriteLine("you have entered incorrect data");}	
+
+
+
+
+
+
+
 //Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
 //645 -> 5
