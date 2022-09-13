@@ -49,6 +49,49 @@ internal class Program
     }
 }
 
+//Задача 21
+
+//Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+//A (3,6,8); B (2,1,-7), -> 15.84
+//A (7,-5, 0); B (1,-1,9) -> 11.53
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Please right the coordinates of points A and B, one by one. ");
+        Console.Write("Write X coordinate for point A: ");
+        try
+        {
+            double XofA = double.Parse(Console.ReadLine());
+            Console.Write("Write Y coordinate for point A: ");
+            double YofA = double.Parse(Console.ReadLine());
+            Console.Write("Write Z coordinate for point A: ");
+            double ZofA = double.Parse(Console.ReadLine());
+            Console.Write("Write X coordinate for point B: ");
+            double XofB = double.Parse(Console.ReadLine());
+            Console.Write("Write Y coordinate for point B: ");
+            double YofB = double.Parse(Console.ReadLine());
+            Console.Write("Write Z coordinate for point B: ");
+            double ZofB = double.Parse(Console.ReadLine());
+
+            double diffX = XofA - XofB;
+            double diffY = YofA - YofB;
+            double diffZ = ZofA - ZofB;
+
+            double distanceStepOne = Math.Sqrt(Math.Pow(diffX, 2) + Math.Pow(diffY, 2));
+            double distanceStepTwo = Math.Sqrt(Math.Pow(distanceStepOne, 2) + Math.Pow(diffZ, 2));
+
+            Console.WriteLine(distanceStepTwo);
+           
+        }          
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
+
 //Задача 23
 
 //Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
