@@ -48,3 +48,36 @@ internal class Program
         }
     }
 }
+
+//Задача 21
+
+//Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+//A (3,6,8); B (2,1,-7), -> 15.84
+//A (7,-5, 0); B (1,-1,9) -> 11.53
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Write a positive number: ");
+        try
+        {
+            int number = int.Parse(Console.ReadLine());
+            if (number < 1)
+            {
+                Console.WriteLine("you have entered a 0 or a negative number");
+            }
+            else
+            {
+                for (int i = 1; i <= number; i++)
+                {
+                    Console.WriteLine(i * i * i);
+                }
+            } 
+        }          
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
