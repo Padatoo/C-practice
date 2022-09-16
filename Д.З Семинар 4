@@ -38,3 +38,50 @@ internal class Program
         }
     }
 }
+
+
+//Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+
+//452 -> 11
+//82 -> 10
+//9012 -> 12
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Enter number: ");
+        try
+        {
+            int numberA = int.Parse(Console.ReadLine());
+            int GetSumma(int number)
+            {
+                int i = 2;
+                int summa = 0;
+                int chislo = 0;
+                while (i > 1)
+                {
+                    chislo = number % 10;
+                    summa = summa + chislo;
+                    number =  number / 10;
+                     i =  number;
+                    if (i == 1)
+                        {
+                        summa =  summa + 1;
+                        break;
+                        }
+
+                 }
+                 return summa;
+             }
+             int answer = GetSumma(numberA);
+             Console.WriteLine(answer);
+            
+            
+
+        }          
+
+        catch
+        { Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
