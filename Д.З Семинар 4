@@ -1,0 +1,40 @@
+//Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. 
+//Решить задачу с использованием методов.
+//3, 5 -> 243 (3⁵)
+//2, 4 -> 16
+
+// метод принимает базу и число А и перемножает их циклом
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Введите число А: ");
+        try
+        {
+            int numberA = int.Parse(Console.ReadLine());
+            Console.Write("Введите натуральную степень В: ");
+            int degreeB = int.Parse(Console.ReadLine());
+
+            // метод
+            int Degree(int number, int baza)
+            {
+                for (int i = 1; i < degreeB; i++)
+                {
+                    int temp = number * baza;
+                    baza = temp;
+                }
+                return baza;
+            }
+            int answer = Degree(numberA, degreeB);
+            Console.WriteLine(answer);
+            
+            
+
+        }          
+
+        catch
+        { Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
