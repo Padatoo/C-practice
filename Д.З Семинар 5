@@ -127,3 +127,47 @@ internal class Program
         }
     }
 }
+
+//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+//[3 7 22 2 78] -> 76
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Enter a size of the array: ");
+        try
+        {
+            int size = int.Parse(Console.ReadLine());
+            var array = new decimal[size];
+            decimal numMax = decimal.MinValue;
+            decimal numMin = decimal.MaxValue;
+            var random = new Random();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = random.Next(-10, 10);
+                
+                if (array[i] > numMax)
+                {
+                    numMax = array[i];
+                }
+                
+                if (array[i] < numMin)
+                {
+                    numMin = array[i];
+                }
+            }
+            Console.WriteLine("[{0}]", string.Join(", ", array));
+            Console.WriteLine(numMax);
+            Console.WriteLine(numMin);
+            Console.WriteLine(numMax - numMin);
+         }
+
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
