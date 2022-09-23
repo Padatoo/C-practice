@@ -85,3 +85,40 @@ internal class Program
         }
     }
 }
+
+//Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. Элементы массива вводятся пользователем.
+
+//1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+//6, 1, 33 -> [6, 1, 33]
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            int size = 8;
+            var array = new string[size];
+            int j = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write("Enter a number or press ENTER to finish: ");
+                array[i] = Console.ReadLine();
+                j++;
+                if (array[i] == "")
+                {
+                    break;
+                }
+            }
+            string tempString = string.Join(", ", array.Take(j));
+            string finalString = tempString[..^2];
+            Console.WriteLine("[{0}]", finalString);
+        }
+
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
