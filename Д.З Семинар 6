@@ -33,3 +33,37 @@ internal class Program
         }
     }
 }
+
+
+//Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+//b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.Write("Enter k1: ");
+        try
+        {
+            decimal k1 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter b1: ");
+            decimal b1 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter k2: ");
+            decimal k2 = decimal.Parse(Console.ReadLine());
+            Console.Write("Enter b2: ");
+            decimal b2 = decimal.Parse(Console.ReadLine());
+
+            decimal x = ((b2 - b1)/((k1 - k2)));
+            decimal y = ((k1 * x) + b1);
+            Console.WriteLine("({0}; {1})", x, y);
+
+
+         }
+
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
