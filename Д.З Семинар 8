@@ -57,3 +57,48 @@ internal class Program
         }
     }
 }
+
+//Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//5 2 6 7
+//Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            Random random = new Random();
+            int[,] array = new int[5, 5];
+            int min = int.MaxValue;
+            int minLine = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < 5; j++)
+                {
+                    array[i,j] = (random.Next(0, 10));
+                    Console.Write($"{array[i,j]} ");
+                    sum = sum + array[i, j];
+                    
+                }
+                if (sum < min)
+                {
+                    min = sum;
+                    minLine = i + 1;
+                }
+                Console.WriteLine();
+            }    
+            Console.WriteLine($"Stroka {minLine}");
+        }
+
+        catch
+        { 
+            Console.WriteLine("You have entere incorrect data");
+        }
+    }
+}
