@@ -81,3 +81,51 @@ internal class Program
         }
     }
 }
+
+//Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            Random random = new Random();
+            Console.Write("Enter a N lines of the array: ");
+            int numberN = int.Parse(Console.ReadLine());
+            Console.Write("Enter a M columns of the array: ");
+            int numberM = int.Parse(Console.ReadLine());
+            int[,] array = new int[numberN, numberM];
+            for (int i = 0; i < numberN; i++)
+            {
+                for (int j = 0; j < numberM; j++)
+                {
+                    array[i,j] = (random.Next(0, 10));
+                    Console.Write($"{array[i, j]} ");
+                }
+            Console.WriteLine();        
+            }
+            double avg = 0.0;
+            for (int j = 0; j < numberM; j++)
+            {
+                double sum = 0.0;
+                for (int i = 0; i < numberN; i++)
+                {
+                    sum = sum + array[i, j];
+                }
+                avg = (sum/(numberM));
+                Console.WriteLine(avg);
+            }
+        }
+
+        catch
+        { 
+            Console.WriteLine("You have entere incorrect data");
+        }
+    }
+}
