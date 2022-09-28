@@ -1,0 +1,36 @@
+//Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+//m = 3, n = 4.
+//0,5 7 -2 -0,2
+//1 -3,3 8 -9,9
+//8 7,8 -7,1 9
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            Random random = new Random();
+            Console.Write("Enter a N lines of the array: ");
+            int numberN = int.Parse(Console.ReadLine());
+            Console.Write("Enter a M columns of the array: ");
+            int numberM = int.Parse(Console.ReadLine());
+            Double[,] array = new Double[numberN, numberM];
+            for (int i = 0; i < numberN; i++)
+            {
+                for (int j = 0; j < numberM; j++)
+                {
+                    array[i,j] = (random.NextDouble()*random.Next(-100, 100));
+                    Console.Write($"{array[i, j]} ");
+                }
+            Console.WriteLine();        
+            }
+        }
+
+        catch
+        { 
+            Console.WriteLine("you have entered incorrect data");
+        }
+    }
+}
