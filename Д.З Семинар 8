@@ -1,0 +1,59 @@
+//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+//Например, задан массив:
+//1 4 7 2
+//5 9 2 3
+//8 4 2 4
+//В итоге получается вот такой массив:
+//7 4 2 1
+//9 5 3 2
+//8 4 4 2
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            Random random = new Random();
+            Console.Write("Enter a N lines of the array: ");
+            int numberN = int.Parse(Console.ReadLine());
+            Console.Write("Enter a M columns of the array: ");
+            int numberM = int.Parse(Console.ReadLine());
+            int[,] array = new int[numberN, numberM];
+            for (int i = 0; i < numberN; i++)
+            {
+                for (int j = 0; j < numberM; j++)
+                {
+                    array[i,j] = (random.Next(0, 10));
+                    Console.Write($"{array[i,j]} ");
+                    
+                }
+                Console.WriteLine();
+            }    
+            for (int i = 0; i < numberN; i++)
+            {    
+                List<int> list1 = new List<int>();
+                for (int j = 0; j < numberM; j++)
+                {
+                    list1.Add(array[i,j]);
+                    //array[i,j] = list1[j];
+                    //Console.Write($"{array[i,j]} ");
+                }  
+                list1.Sort();
+                list1.Reverse(); 
+                //Console.WriteLine();
+                for (int j = 0; j < numberM; j++)
+                {
+                    array[i,j] = list1[j];
+                    Console.Write($"{array[i,j]} ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        catch
+        { 
+            Console.WriteLine("You have entere incorrect data");
+        }
+    }
+}
