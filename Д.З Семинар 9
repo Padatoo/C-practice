@@ -25,3 +25,35 @@ internal class Program
         }
     }
 }
+
+//Задача 66: Задайте значения M и N. Напишите программу, 
+//которая найдёт сумму натуральных элементов в промежутке от M до N.
+//M = 1; N = 15 -> 120
+//M = 4; N = 8. -> 30
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        try
+        {
+            Console.WriteLine("Please enter number N (bigger number)");
+            int N = int.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter number M (smaller number)");
+            int M = int.Parse(Console.ReadLine());
+            int result = 0;
+            int Metod(int N, int M)
+            {
+                result = N;
+                if (N > M) return result + Metod(N - 1, M);
+                else return result;
+            }
+            Console.WriteLine(Metod(N, M));
+        }
+
+        catch
+        { 
+            Console.WriteLine("You have entere incorrect data");
+        }
+    }
+}
