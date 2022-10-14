@@ -250,3 +250,109 @@ using System;
                 }
             }
     }       
+
+//Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+//Например, на выходе получается вот такой массив:
+//01 02 03 04
+//12 13 14 05
+//11 16 15 06
+//10 09 08 07
+using System;
+    class Program
+{
+    struct Direction
+    {
+        public int i;
+        public int j;
+    }
+ 
+    static void Main(string[] args)
+    {
+        int n, m;
+ 
+        Console.Write("Enter n: ");
+        while (!Int32.TryParse(Console.ReadLine(), out n))
+        {
+            Console.Write("The entered value is incorrect. Try again: ");
+        }
+        Console.Write("Enter m: ");
+        while (!Int32.TryParse(Console.ReadLine(), out m))
+        {
+            Console.Write("The entered value is incorrect. Try again: ");
+        }
+ 
+        int[,] array = new int[n, m];
+        Direction direct = new Direction() { i = 0, j = 1 };
+        int count = 0;
+ 
+        int i = 0, j = 0;
+        while (count < n * m)
+        {
+            while ((i < n) && (i >= 0) && (j < m) && (j >=0))
+            {
+                if (array[i, j] == 0)
+                {
+                    count++;
+                    array[i, j] = count;
+                    i += direct.i;
+                    j += direct.j;
+                }
+                else
+                {
+                    if (count == m * n) break;
+                    i -= direct.i;
+                    j -= direct.j;
+                    ChangeDirection(ref direct);
+                    i += direct.i;
+                    j += direct.j;
+                }
+            }
+ 
+            if (i < 0) i = 0;
+            if (i >= n) i = n - 1;
+            if (j < 0) j = 0;
+            if (j >= m) j = m - 1;
+            ChangeDirection(ref direct);
+            i += direct.i;
+            j += direct.j;
+        }
+ 
+        Console.WriteLine("Result:");
+        for (i = 0; i < n; i++)
+        {
+            for (j = 0; j < m; j++)
+            {
+                Console.Write("{0:00} ",array[i, j]);
+            }
+            Console.WriteLine();
+        }
+        Console.ReadLine();
+    }
+ 
+    static void ChangeDirection(ref Direction direct)
+    {
+        switch (direct.i)
+        {
+            case -1:
+                direct.i = 0;
+                direct.j = 1;
+                break;
+            case 1:
+                direct.i = 0;
+                direct.j = -1;
+                break;
+            case 0:
+                if (direct.j > 0)
+                {
+                    direct.i = 1;
+                    direct.j = 0;
+                }
+                else
+                {
+                    direct.i = -1;
+                    direct.j = 0;
+                }
+                break;
+        }
+    }
+}    
